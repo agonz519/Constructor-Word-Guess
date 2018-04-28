@@ -1,4 +1,6 @@
 const Letter = require("./Letter.js");
+let countYes = 0;
+let countNo = 0;
 
 const Word = function(lettersArray) {
   this.lettersArray = lettersArray;
@@ -9,25 +11,39 @@ const Word = function(lettersArray) {
     });
     console.log(word);
   };
-  this.guessLetter = function() {
+  this.guessLetter = function(character) {
+    let matchFound;
     this.lettersArray.forEach(function(letter) {
-      this.checkLetter(letter);
-    })
+     matchFound = letter.checkLetter(character);
+     if (matchFound === 1) {
+       // if (countYes < 1 && countNo !) {
+       //   console.log('Yes!');
+       //   countYes++;
+       // }
+     } else {
+       // if (countNo < 1 && countYes !== 1) {
+       //   console.log('Nope!');
+       //   countNo++;
+       }
+    });
   }
 };
 
-let a = new Letter('a');
-let l = new Letter('l');
-let e = new Letter('e');
-let x = new Letter('x');
+module.exports = Word;
 
-a.checkLetter('a');
-l.checkLetter('l');
-e.checkLetter('f');
-x.checkLetter('x');
-let newWord = new Word([a, l, e, x]);
 
-newWord.displayCharacters();
+// // -------- For Testing ---------- //
+// let a = new Letter('a');
+// let l = new Letter('l');
+// let e = new Letter('e');
+// let x = new Letter('x');
+// let space = new Letter(' ');
+// let g = new Letter('g');
+//
+// let newWord = new Word([a, l, e, x, space, g]);
+// newWord.guessLetter('g');
+// newWord.displayCharacters();
+
 
 
 

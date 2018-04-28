@@ -2,20 +2,21 @@ const Letter = function(letter) {
   this.letter = letter;
   this.letterGuessed = false;
   this.maskUnmask = function() {
-    if (this.letterGuessed) {
+    if (this.letterGuessed || this.letter === ' ') {
       return letter;
     } else {
       return '_';
     }
   };
   this.checkLetter = function(character) {
+
     if (character === letter) {
       this.letterGuessed = true;
-      console.log('You guessed correctly!');
+      return 1;
       this.maskUnmask();
     } else {
-      console.log('nope!');
       this.maskUnmask();
+      return 0;
     }
   };
 };
